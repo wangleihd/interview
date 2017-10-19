@@ -4,4 +4,4 @@
 * [CSS3](./css.md)
 * [JavaScript](./js.md)
 * [React Native](./rn.md)
-* [other](./other.md)
+* [other](./interview/other.md)
