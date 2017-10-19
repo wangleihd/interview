@@ -241,3 +241,136 @@ nodejs的优缺点
 8.Nodejs未知错误处理
 9.settimeOut 与 setmmediate(),process.nextTick() 执行优先级
 
+
+
+
+
+## HTML:
+
+
+1. Cookie的利弊
+  cookie能够持久保持客户端的数据,能够分担服务器的压力.
+  弊端:  数量限制.每个特定的域名下只能最多生成20个cookie
+                IE7之后, Firefox最多最多50个
+                chrome和safsri没有硬性限制
+                coolie最大字节为4096, 为了兼容性一般不超过4096个
+        安全性. 被人拦截cookie后可以轻易获取所有session信息
+        有些状态不可能保存在客户端.
+        每次请求一个页面都会发送cookie, 浪费带宽, 且不可跨域调用.
+
+
+2. 简单说一下浏览器的本地存储
+    Web Storage包括sessionStorage和localStorage,具有相同的方法,如:setltem, getltem, removeltem.
+    在较高的浏览器版本中,js提供了sessionStorage和globalStorage.  在HTML5中提供了localStorage来取代globalStorage.
+    sessionStorage用于本地存储一个会话中的数据, 这些数据只有在同一个会话中的页面才能访问, 会话结束后会销毁,不是持久化的本地存储.
+    localStorage用于持久化的本地存储, 除非主动删除, 否则永远不会过期.
+
+3. display:none 和visibility:hidden区别: 后者占位前者不占
+
+4. css中link和@import区别:
+    link是HTML标签,@import是CSS提供的
+    页面加载时, link会同时加载, 而@import引用的会在页面加载完后再加载
+    link无兼容问题, 而@import只有IE5以上识别.
+
+5. CSS3新特性
+    圆角(border-radius), 阴影(box-shadow), 文字特效(text-shadow), 渐变(gradient), 旋转(rotate), 缩放(scale), 定位(translate), 倾斜(skew),选择器, 多背景rgba, 伪类(::selection), 媒体查询
+
+6. 为什么要初始化CSS样式
+    浏览器兼容问题, 不同的浏览器对有些标签的默认值是不同的, 不初始化会出现差异 {padding: 0; margin:0}
+
+7. BFC规范的理解
+
+8. 说说对语义化的理解
+    - 没有样式时候仍然能够让页面有清晰的结构
+    - 有利于SEO:和搜索引擎建立良好的沟通,利于爬虫抓取更多有利信息
+    - 方便其他设备解析(屏幕阅读器, 盲人阅读器)
+    - 便于团队开发维护
+
+9. doctype的作用(多少种类型), 严格模式和混杂模式的区分,有何意义
+    - 声明用于文档最前面, 告知浏览器以何种模式来渲染文档
+    - 严格模式的排版和js运作模式是以浏览器最高标准来运行的
+    - 在混杂模式中, 页面以宽松的向后兼容的方式显示, 模拟老浏览器防止站点无法工作
+    - 没有声明会导致文档以混杂模式呈现.
+
+10. HTML与XHTML的区别:XHTML必须正确嵌套,必须闭合,标签名小写,必须有跟元素
+
+11. HTML常见的兼容性问题
+<!--  针对ie浏览器设置的,html5shiv, respond 用于让第版本的ie浏览器支持html5的新元素和媒体查询-->
+<!--[if lt IE 9]>
+<script src="./js/html5shiv.min.js"></script>
+<script src="./js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+12. 浮动和它的工作原理, 如何清楚浮动
+    脱离文档流, 不占据空间 碰到包含的边框或浮动元素的边框停留
+    - 空标签. 浮动标签后面添加空标签, 设CSS clear: both
+    - 使用overflow. 给包含浮动元素的父标签添加CSS overflow:auto; zoom:1; zoom:1用于兼容IE6
+    - 使用after伪对象清除
+    - 设置overflow为hidden或auto
+
+13. IE8以下的盒子模型元素宽高包括padding和border
+
+14. 用过哪些浏览器,内核分别是什么
+    - IE:  trident内核
+    - chrome,Opera:  Blink(基于webit, 共同开发)
+    -Firefox: gecko内核
+    -Safari: webkit内核
+    引擎主要分为渲染引擎(静态), js引擎(动态)
+
+
+15. HTML全局属性有哪些
+    - class:为元素设置类标识，多个类名用空格分开
+    - contenteditable: 指定元素内容是否可编辑
+    - contextmenu: 自定义鼠标右键弹出内容
+    - data-* : 为元素增加自定义属性
+    - dir: 设定元素文本方向
+    - draggable: 设定元素是否可拖拽
+    - id: 元素文档内唯一
+    - spellcheck: 是否启动拼写检查
+    - style: 行内CSS样式
+    - tabindex: 设置元素可以获得焦点, 可通过tab导航
+
+16. HTML5优缺点
+    优:  - W3C推荐, 网络标准统一
+        - 多设备,跨平台, 改进用户体验
+        - 增加新标签, 有助于开发人员定义重要内容
+        - 带来更多的多媒体元素,音频视频, 替代flash
+        - 对搜索引擎友好, 可用于移动应用和游戏
+    缺: - 浏览器支持情况不一, 兼容性不好
+
+17. window.storage
+
+
+## JS:
+1. js的数据类型，存储方式(栈，堆)
+2. js内置对象
+3. js基本代码规范
+4. call和apply作用，区别
+5. push pop shift unshift
+6. 媒体查询
+7. this
+8. js原型，原型链
+9. 如何实现继承
+10. 创建对象的方式
+11. null \ undefined
+12. ['1','2','3'].map(parseInt)
+13. 事件是什么，冒泡捕获，如何阻止
+14. 闭包，好处
+15. 'use strict',
+16. new操作符具体干了些什么
+17. object.hasOwnProperty 查找对象是否有该属性名，返回布尔值，且不找原型
+18. json 
+19. ajax
+20. 同步异步，异步加载js
+21. 跨域
+22. es6 class
+23. document.write \ innerHTML
+24. DOM操作
+25. 内存泄露
+26. 判断当前脚本运行环境
+27. 检测浏览器版本
+28. canvas svg
+29. 模块化规范，CommonJS, AMD, CMD
+30. MVC, MVVM
+
+
